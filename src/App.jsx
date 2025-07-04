@@ -4,7 +4,7 @@ import Table from "./conponents/Table"
 
 const App = () => {
   return (
-    <div className="w-2/5 min-w-2xs m-auto bg-amber-100 mt-20">
+    <div className="w-full mr-20 ml-20 mt-20 md:w-3/5 md:m-auto md:mt-20 bg-amber-100">
       <Form/>
       <Table/>
     </div>

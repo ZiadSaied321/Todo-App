@@ -1,22 +1,37 @@
-
 const Task = ({ task, onToggleComplete, onDelete }) => {
   return (
     <div className="flex items-center justify-between bg-white border border-gray-200 rounded-lg p-4 shadow-sm transition duration-200 ease-in-out hover:shadow-md">
       {/* Checkbox and Task Text */}
-      <div className="flex items-center flex-grow">
-        <input
-          type="checkbox"
-          checked={task.completed}
-          onChange={() => onToggleComplete(task.id)}
-          className="form-checkbox h-5 w-5 text-blue-600 rounded-md cursor-pointer focus:ring-blue-500 transition duration-150 ease-in-out"
-        />
-        <span
-          className={`ml-4 text-lg font-medium ${
-            task.completed ? 'line-through text-gray-500' : 'text-gray-800'
-          }`}
-        >
-          {task.text}
-        </span>
+      <div>
+        <div className="flex items-center flex-grow">
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => {
+              onToggleComplete(task.id);
+            }}
+            className="form-checkbox h-5 w-5 text-blue-600 rounded-md cursor-pointer focus:ring-blue-500 transition duration-150 ease-in-out"
+          />
+          <span
+            className={`ml-4 text-lg font-medium ${
+              task.completed ? "line-through text-gray-500" : "text-gray-800"
+            }`}
+          >
+            {task.task}
+          </span>
+          <span
+            className={`ml-4 text-lg font-medium ${
+              task.completed ? "line-through text-gray-300" : "text-gray-400"
+            }`}
+          >
+            {task.category}
+          </span>
+        </div>
+        <div>
+          <p className="text-l text-gray-500 text-center m-auto">
+            {task.dueDate}
+          </p>
+        </div>
       </div>
 
       {/* Delete Icon (using a simple SVG for demonstration) */}
@@ -41,7 +56,6 @@ const Task = ({ task, onToggleComplete, onDelete }) => {
       </button>
     </div>
   );
-}
+};
 
-export default Task
-
+export default Task;

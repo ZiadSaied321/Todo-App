@@ -1,22 +1,19 @@
 import { useState } from "react";
-
-const Form = () => {
+import { uid } from "uid";
+const Form = ({todos , setTodos}) => {
   const [task, setTask] = useState('');
   const [category, setCategory] = useState('');
   const [dueDate, setDueDate] = useState('');
 
+
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    console.log({
-      task,
-      category,
-      dueDate,
-    });
-    
-    setTask('');
-    setCategory('');
-    setDueDate('');
+    setTodos(()=> [...todos,{task, category,dueDate, completed: false, id: uid()}]) 
+
+    setTask("")
+    setCategory("")
+    setDueDate("")
   };
 
   return (
